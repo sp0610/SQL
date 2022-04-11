@@ -1,0 +1,28 @@
+INSERT INTO Icecream_monthly_sales VALUES (1,"Vanilla",78, 5, 2, 38);
+INSERT INTO Icecream_monthly_sales Values (2,"Chocolate", 90, 6, 3, 40);
+INSERT INTO Icecream_monthly_sales Values (3,"Red Velvet",56, 4, 2, 32);
+INSERT INTO Icecream_monthly_sales VALUES (4, "Rocky Road", 34, 7, 4, 12);
+INSERT INTO Icecream_monthly_sales Values (5, "Chocolate Fudge Brownie", 22, 8, 5, 5);
+INSERT INTO Icecream_monthly_sales Values (6, "Chocolate Chip", 17, 7, 3, 10);
+INSERT INTO Icecream_monthly_sales Values (7, "Strawberry", 43, 5, 3, 22);
+INSERT INTO Icecream_monthly_sales Values (8, "Mint Chocolate Chip", 28, 7, 3, 15);
+INSERT INTO Icecream_monthly_sales Values (9, "Neapolitan", 23, 9, 4, 5);
+Insert Into Icecream_monthly_sales Values (10, "Cotton Candy", 43,10,6,22);
+INSERT INTO Icecream_monthly_sales Values (11, "Butterscotch", 32,7,4,22);
+INSERT INTO Icecream_monthly_sales Values (12, "Matcha",35,10,7,15);
+INSERT INTO Icecream_monthly_sales Values (13, "Peanut Butter", 23,7,4,11);
+INSERT INTO Icecream_monthly_sales Values (14, "Mango", 32, 9,5,18);
+INSERT INTO Icecream_monthly_sales Values (15, "Salted Caramel", 15, 7,5, 11);
+
+SELECT * FROM Icecream_monthly_sales
+ORDER BY price;
+
+SELECT name, max(quantity_sold) FROM Icecream_monthly_sales;
+
+SELECT * FROM Icecream_monthly_sales
+WHERE Quantity_sold < 15;
+
+SELECT name, sum(price)*quantity_sold AS revenue,
+sum(price)*quantity_sold-(cost*quantity_sold) AS Gross_profit
+FROM Icecream_monthly_sales
+GROUP BY name;

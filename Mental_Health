@@ -1,0 +1,30 @@
+--In this query, I want to see what questions are being asked in the survey.
+SELECT * 
+FROM Question;
+
+--I want to know how comfortable people are discussing a mental health issue with a coworker
+SELECT Question.questiontext, 
+Answer.AnswerText
+FROM Answer
+Inner Join Question
+ON Answer.QuestionID=Question.questionid
+WHERE Question.questionid=18
+ORDER BY Answer.AnswerText desc;
+
+--I now want to take it a step further and see how many people said yes in 2018
+SELECT
+Question.questiontext,
+COUNT(Answer.AnswerText)
+FROM Answer
+INNER JOIN Question
+ON Answer.QuestionID=Question.questionid
+WHERE Question.questionid=18 AND Answer.AnswerText='Yes' AND SurveyID =2018;
+
+--Using the same query, I now want to know how many people said yes in 2019
+SELECT
+Question.questiontext,
+COUNT(Answer.AnswerText)
+FROM Answer
+INNER JOIN Question
+ON Answer.QuestionID=Question.questionid
+WHERE Question.questionid=18 AND Answer.AnswerText='Yes' AND SurveyID =2019;
